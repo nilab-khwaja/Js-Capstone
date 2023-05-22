@@ -1,0 +1,32 @@
+{
+  "name": "js-capstone",
+  "version": "1.0.0",
+  "description": "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",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --open",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilab-khwaja/Js-Capstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nilab-khwaja/Js-Capstone/issues"
+  },
+  "homepage": "https://github.com/nilab-khwaja/Js-Capstone#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.4",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.1"
+  }
+}
