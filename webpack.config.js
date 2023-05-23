@@ -34,17 +34,16 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-            },
-          },
-        ],
+        test: /\.html$/i,
+        use: 'html-loader',
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name]-[hash][ext]',
+        },
       },
     ],
   },
