@@ -1,6 +1,6 @@
 // Getting data from the theMealDB API function
 export const getMealData = async () => {
-  const request = new Request('https://themealdb.com/api/json/v1/1/filter.php?a=Canadian');
+  const request = new Request('https://themealdb.com/api/json/v1/1/search.php?f=a');
   const response = await fetch(request);
   const data = await response.json();
   return data.meals;
@@ -18,7 +18,7 @@ export const populatedishes = async (mealData) => {
                                 <i id ="M${element.idMeal}" class="fa-sharp fa-solid fa-heart heart" style="color: #8b4513;"></i><span id ="L${element.idMeal}" class = "likes">0 likes</span>
                               </div>
                               <div class = "buttons-box flex-row">
-                                <button class = 'comment'>Comments</button>
+                                <button id = "B${element.idMeal}"  class = 'comment'>Comments</button>
                                 <button class = 'Reservation'>Reservation</button>
                               </div>
                               <hr>
