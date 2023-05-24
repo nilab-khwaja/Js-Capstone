@@ -190,24 +190,23 @@ button:hover,
   }
 }
 
-.popup{
+.popup {
   display: none;
 }
 
 .popup.show {
-display: block;
+  display: block;
 }
 
-
-.popup .content{
+.popup .content {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 90%;
-  height:auto;
+  height: auto;
   z-index: 2;
   text-align: center;
   padding: 10px;
@@ -215,7 +214,7 @@ display: block;
   background-color: rgb(253, 242, 242);
 }
 
-.popup .close-btn{
+.popup .close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -226,20 +225,21 @@ display: block;
   cursor: pointer;
 }
 
-.cmnt-form{
+.cmnt-form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: auto;
   align-items: center;
-  gap: 5px;  
+  gap: 5px;
 }
 
-.cmnt-form input,textarea{
+.cmnt-form input,
+textarea {
   border: solid 2px black;
 }
 
-.pop-img{
+.pop-img {
   height: 300px;
-  width:600px;
+  width: 600px;
 }

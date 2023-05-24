@@ -3,11 +3,11 @@ import './style.css';
 
 // import the required functions from module
 import {
-  getMealData, populatedishes, addLike, getLikesData, diplayLikes
+  getMealData, populatedishes, addLike, getLikesData, diplayLikes,
 } from './modules/functions.js';
 
-//import popup function
-import{openPopup} from './modules/popup.js';
+// import popup function
+import { openPopup } from './modules/popup.js';
 
 // Getting data from the theMealDB API
 const mealData = await getMealData();
@@ -39,8 +39,6 @@ foodListSection.addEventListener('click', async (e) => {
   e.preventDefault();
   if (e.target && e.target.matches('button.comment')) {
     const targetId = e.target.id;
-    console.log(mealData);
-    openPopup(mealData,targetId);
+    openPopup(mealData, targetId);
   }
 });
-
