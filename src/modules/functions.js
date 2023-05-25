@@ -13,16 +13,16 @@ export const populatedishes = async (mealData) => {
     const foodCard = document.createElement('div');
     foodCard.classList.add('food-card', 'flex-column');
     foodCard.innerHTML = `<div class = 'image-box'><img src = '${element.strMealThumb}' alt = 'meal'></div>
-                          <div class = 'flex-row meal-title-and-interactions-box'>
-                            <h2 class = 'meal-name'>${element.strMeal}</h2>
-                            <i id ="M${element.idMeal}" class="fa-sharp fa-solid fa-heart heart" style="color: #8b4513;"></i><span id ="L${element.idMeal}" class = "likes">0 likes</span>
-                          </div>
-                          <div class = "buttons-box flex-row">
-                            <button class = 'comment'>Comments</button>
-                            <button class = 'Reservation'>Reservation</button>
-                          </div>
-                          <hr>
-                          `;
+                              <div class = 'flex-row meal-title-and-interactions-box'>
+                                <h2 class = 'meal-name'>${element.strMeal}</h2>
+                                <i id ="M${element.idMeal}" class="fa-sharp fa-solid fa-heart heart" style="color: #8b4513;"></i><span id ="L${element.idMeal}" class = "likes">0 likes</span>
+                              </div>
+                              <div class = "buttons-box flex-row">
+                                <button id = "B${element.idMeal}"  class = 'comment'>Comments</button>
+                                <button class = 'Reservation'>Reservation</button>
+                              </div>
+                              <hr>
+                              `;
     foodListSection.appendChild(foodCard);
   });
 };

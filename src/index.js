@@ -6,6 +6,9 @@ import {
   getMealData, populatedishes, addLike, getLikesData, diplayLikes, counter, diplayNumberOfItems,
 } from './modules/functions.js';
 
+// import popup function
+import { openPopup } from './modules/popup.js';
+
 // Getting data from the theMealDB API
 const mealData = await getMealData();
 
@@ -32,5 +35,14 @@ foodListSection.addEventListener('click', async (e) => {
     await addLike(targetId);
     const likesData = await getLikesData();
     diplayLikes(likesData, targetId);
+  }
+});
+
+// add evenlistner for popup window
+foodListSection.addEventListener('click', async (e) => {
+  e.preventDefault();
+  if (e.target && e.target.matches('button.comment')) {
+    const targetId = e.target.id;
+    openPopup(mealData, targetId);
   }
 });
