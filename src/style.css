@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap");
 * {
   box-sizing: border-box;
   padding: 0;
@@ -8,6 +9,7 @@
 body {
   background-color: #d3d3d3;
   font-size: 1rem;
+  font-family: sans-serif, "Comic Neue";
 }
 
 .flex-column {
@@ -199,6 +201,61 @@ button:hover,
   }
 }
 
+.popup {
+  display: none;
+}
+
+.popup.show {
+  display: block;
+}
+
+.popup .content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: auto;
+  z-index: 2;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: rgb(253, 242, 242);
+}
+
+.popup .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  font-size: 70px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.cmnt-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: auto;
+  align-items: center;
+  gap: 5px;
+}
+
+.cmnt-form input,
+textarea {
+  border: solid 2px black;
+}
+
+.pop-img {
+  height: 300px;
+  width: 600px;
+}
+
+/* popUp window stye */
 .popup {
   display: none;
 }
