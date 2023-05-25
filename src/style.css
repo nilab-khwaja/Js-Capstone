@@ -207,11 +207,12 @@ button:hover,
   transform: translate(-50%, -50%);
   width: 90%;
   height: auto;
-  z-index: 2;
   text-align: center;
-  padding: 10px;
+  z-index:9999%;
+  padding: 30px;
   box-sizing: border-box;
   background-color: rgb(253, 242, 242);
+  box-shadow: #2f2c28;
 }
 
 .popup .close-btn {
@@ -239,6 +240,13 @@ textarea {
   border: solid 2px black;
 }
 
+.submit-btn{
+  padding: 4px;
+  float: left;
+  position: relative;
+  width: 50px;
+
+}
 .pop-img {
   height: 300px;
   width: 600px;
