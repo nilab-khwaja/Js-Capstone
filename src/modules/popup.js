@@ -1,87 +1,67 @@
-/* eslint-disable import/prefer-default-export */
-
-import { postComment, getComment } from "./comment.js";
+import { postComment, getComment, displayComments } from "./comment.js";
 
 export const openPopup = (mealData, mealId) => {
-  const id = mealId.replace('B', '');
-  const popup = document.querySelector('.popup');
-  popup.classList.add('show');
+  const id = mealId.replace("B", "");
+  const popup = document.querySelector(".popup");
+  popup.classList.add("show");
   mealData.forEach((element) => {
     if (element.idMeal === id) {
-      popup.innerHTML = `
+      popup.innerHTML =`
   <div class="content">
+     <div class = "right">
      <div id="close-btn" class="close-btn">&times;</div>
-     <div class="img"><img src="${element.strMealThumb}" alt="${element.strMeal}" class="pop-img"></div>
+     <div class="img"><img src="${element.strMealThumb}" alt="${element.strMeal}" class="pop-img">
      <h3>${element.strMeal}</h3>
+     </div>
+     <div class= "food-instruction">
+     <h2>Instruction</h2>
      <p>${element.strInstructions}</p>
+     </div>
+     </div>
      <hr/>
      <br>
+     <div class = "left">
      <div class="display-comments">
             <h3>Comments <span id= "comments-count">0</span> </h3>
             <ul id="comments-list" class = "commentsUl"></ul>   
      </div>
-      <h2 class="leave-comment">Leave A Comment </h2>
-      <form class="cmnt-form" id="cmnt-form">
-                    <input  name="name" placeholder="Your name">
-                    <textarea placeholder="Your insights" name="comment" cols="20" rows="5"></textarea>
-                    <button type="submit" class='submit-btn'>comment</button>
-      </form>
+        <div class = "form-section">
+          <h2 class="leave-comment">Leave A Comment </h2>
+          <form class="cmnt-form" id="cmnt-form">
+                        <input required name="name" placeholder="Your name">
+                        <textarea required placeholder="Your insights" name="comment" cols="20" rows="5"></textarea>
+                        <button type="submit" class='submit-btn'>comment</button>
+          </form>
+        </div>
+      </div>
   </div>`;
-        const form = document.querySelector('.cmnt-form');
-        form.addEventListener('submit', (e)=>{
-          e.preventDefault();
-          const name = document.querySelector('input').value;
-          const commentMsg = document.querySelector('textarea').value;
-          const cmntData ={
-            item_id: mealId.toString(),
-            username:name,
-            comm:commentMsg
-          };
-          
-          // form.reset();
-          if(cmntData.username && cmntData.comm){
-            postComment(cmntData);
-          }
-         
-          getComment(mealId);
+      const form = document.querySelector(".cmnt-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.querySelector("input").value;
+        const commentMsg = document.querySelector("textarea").value;
+        const cmntData = {
+          item_id: mealId.toString(),
+          username: name,
+          comment: commentMsg,
+        };
 
-          // setTimeout(() => {
-          //   window.location.reload();
-          // },1000);
+        // form.reset();
+        postComment(cmntData).then(async () => {
+          const comments = await getComment(mealId)
+          const prevComments = await getComment(mealId);
+            displayComments(comments,prevComments);
         });
 
-      const closeBtn = document.querySelector('.close-btn');
-      closeBtn.addEventListener('click', () => {
-        popup.classList.remove('show');
+        // setTimeout(() => {
+        //   window.location.reload();
+        // },1000);
+      });
+
+      const closeBtn = document.querySelector(".close-btn");
+      closeBtn.addEventListener("click", () => {
+        popup.classList.remove("show");
       });
     }
   });
 };
-
-
-// export const addComment = async (targetId, username, comment) => {
-//       const request = new Request('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/R20mJzx45L3RyqatiuEZ/comments/');
-//       await fetch(request, {
-//         headers: {
-//           'Content-type': 'application/json',
-//         },
-//         method: 'POST',
-//         body: JSON.stringify({
-//           item_id: targetId,
-//           username: username,
-//           comment: comment,
-//         }),
-//       });
-//     };
-
-
-// //Getting data from the Involvment
-
-// export const getCommentData = async () => {
-//     const request = new Request('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/R20mJzx45L3RyqatiuEZ/comments/');
-//     const response = await fetch(request);
-//     console.log(response);
-//     const data = await response.json();
-//     console.log(data);
-//     return data;
-//   };

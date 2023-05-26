@@ -202,13 +202,12 @@ button:hover,
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
   height: auto;
   text-align: center;
-  z-index:9999%;
   padding: 30px;
   box-sizing: border-box;
   background-color: rgb(253, 242, 242);
@@ -216,14 +215,68 @@ button:hover,
 }
 
 .popup .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: fixed;
+  top: 10px;
+  right: 30px;
   width: 30px;
   height: 30px;
   font-size: 70px;
   font-weight: 900;
   cursor: pointer;
+}
+.right{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  flex-grow: 1;
+}
+.food-instruction{
+  display: flex;
+  flex-direction: column;
+  gap:6px;
+}
+.img{
+  display: flex;
+  flex-direction: column;
+  gap:4px;
+}
+
+.left{
+  display: flex;
+  justify-content:space-evenly;
+  gap: 20px;
+  align-items: flex-start;
+  flex-grow: 2;
+}
+
+.form-section{
+  display: flex;
+  flex-direction: column;
+  gap:4px;
+}
+
+.display-comments{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+#comments-list li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#comments-list li:before {
+  content: attr(data-username);
+  font-weight: bold;
+  margin-right: 5px;
+} 
+
+#comments-list li span {
+  margin-left: 5px;
 }
 
 .cmnt-form {
@@ -241,13 +294,12 @@ textarea {
 }
 
 .submit-btn{
-  padding: 4px;
-  float: left;
-  position: relative;
-  width: 50px;
+  width: 90px;
+  padding: 10px;
+  color: black;
 
 }
 .pop-img {
   height: 300px;
-  width: 600px;
+  width: 300px;
 }
