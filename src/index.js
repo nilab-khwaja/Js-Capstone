@@ -7,7 +7,10 @@ import {
 } from './modules/functions.js';
 
 // import popup function
-import { openPopup } from './modules/popup.js';
+import {
+  openPopup, getCommentData, populateComments, addComment, errorMsg,
+  diplayNumberOfComments, commentcounter,
+} from './modules/popup.js';
 
 // Getting data from the theMealDB API
 const mealData = await getMealData();
@@ -36,8 +39,45 @@ foodListSection.addEventListener('click', async (e) => {
 // add evenlistner for popup window
 foodListSection.addEventListener('click', async (e) => {
   e.preventDefault();
+  const targetId = e.target.id;
   if (e.target && e.target.matches('button.comment')) {
-    const targetId = e.target.id;
     openPopup(mealData, targetId);
   }
+  // We need to use the prefix M because we initially used it to post likes in the API
+  const itemId = targetId.replace('B', 'M');
+
+  // Getting and displaying the number of comments
+  const nbComments = await commentcounter(itemId);
+  diplayNumberOfComments(nbComments);
+
+  // Get comment the corresponding comment data from the API
+  const commentData = await getCommentData(itemId);
+
+  // Populate comment data in the popup window after checking that data is not empty
+  if (commentData.length) {
+    populateComments(commentData);
+  }
+  // Add event listener to the submit comment button
+  const submitCommentBtn = document.querySelector('button.submit-btn');
+  submitCommentBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const userName = document.querySelector('input.user-name').value;
+    const insights = document.querySelector('textarea.insights').value;
+    if (!userName || !insights) {
+      errorMsg(userName, insights);
+    }
+    await addComment(itemId, userName, insights);
+    document.querySelector('input.user-name').value = '';
+    document.querySelector('textarea.insights').value = '';
+
+    // Clean the board
+    document.getElementById('comments-list').innerHTML = '';
+    // Gettint the updated comment data from the API and populate
+    const commentData = await getCommentData(itemId);
+    // Repopulate using the updated comment data
+    populateComments(commentData);
+    // Getting and displaying the number of comments
+    const nbComments = await commentcounter(itemId);
+    diplayNumberOfComments(nbComments);
+  });
 });

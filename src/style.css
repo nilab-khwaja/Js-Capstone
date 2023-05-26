@@ -202,16 +202,17 @@ button:hover,
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  height: auto;
+  height: 90%;
   text-align: center;
   padding: 30px;
   box-sizing: border-box;
   background-color: rgb(253, 242, 242);
   box-shadow: #2f2c28;
+  overflow-y: scroll;
 }
 
 .popup .close-btn {
