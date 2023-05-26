@@ -67,7 +67,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
->[Live Demo](https://nilab-khwaja.github.io/Js-Capstone/)
+>[Live Demo](https://js-capstone-yxy3.onrender.com)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
