@@ -1,0 +1,352 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: #2f2c28;
+}
+
+body {
+  background-color: #d3d3d3;
+  font-size: 1rem;
+  font-family: sans-serif, "Comic Neue";
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+ul {
+  list-style: none;
+}
+
+button:hover,
+.heart:hover {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 320px) {
+  header {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    position: fixed;
+    background-color: #8b4513;
+  }
+
+  .logo-box {
+    width: 30%;
+  }
+
+  .logo {
+    width: 100%;
+  }
+
+  ul {
+    width: 65%;
+    column-gap: 5%;
+  }
+
+  ul li:nth-child(1) {
+    text-decoration: underline;
+    color: #ffffed;
+  }
+
+  ul li a {
+    color: #2beb83;
+    text-decoration: none;
+  }
+
+  section.food-list {
+    width: 100%;
+    padding-top: 60px;
+    gap: 10px;
+  }
+
+  .food-card {
+    width: 90%;
+    justify-content: center;
+    margin: 0 5%;
+    row-gap: 30px;
+  }
+
+  .image-box {
+    width: 100%;
+  }
+
+  .image-box img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .image-box img:hover {
+    width: 103%;
+    border-radius: 15px;
+  }
+
+  .meal-title-and-interactions-box {
+    margin-top: -30px;
+    justify-content: space-between;
+  }
+
+  .meal-title-and-interactions-box h2 {
+    font-size: 1.2rem;
+    width: 67%;
+  }
+
+  .meal-title-and-interactions-box span {
+    font-size: 1.1rem;
+    color: #8b4513;
+  }
+
+  .buttons-box {
+    justify-content: space-between;
+    margin-top: -20px;
+  }
+
+  button {
+    width: 30%;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  header ul {
+    width: 60%;
+    column-gap: 5%;
+    margin-left: 15%;
+  }
+
+  .meal-title-and-interactions-box h2 {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  header ul {
+    width: 60%;
+    column-gap: 5%;
+    margin-left: 18%;
+  }
+
+  section.food-list {
+    padding-top: 80px;
+  }
+
+  .meal-title-and-interactions-box h2 {
+    width: 75%;
+  }
+
+  button {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .logo {
+    width: 90%;
+  }
+
+  header ul {
+    column-gap: 5%;
+    margin-left: 40%;
+  }
+
+  section.food-list {
+    width: 100%;
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-template-columns: auto auto;
+  }
+
+  button {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  section.food-list {
+    width: 100%;
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 35% 35% 35%;
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  section.food-list {
+    width: 80%;
+    margin: 0 10%;
+  }
+
+  .logo-box {
+    width: 20%;
+  }
+
+  .logo {
+    width: 100%;
+  }
+
+  header ul {
+    column-gap: 5%;
+    margin-left: 50%;
+  }
+}
+
+/* popUp window stye */
+div.container {
+  position: fixed;
+  top: 60px;
+  left: 100px;
+  width: 90%;
+  height: 95%;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.popup {
+  display: none;
+}
+
+.popup.show {
+  display: block;
+}
+
+.popup .content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  text-align: center;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: rgb(253, 242, 242);
+  box-shadow: #2f2c28;
+  overflow-y: scroll;
+}
+
+.popup .close-btn {
+  position: fixed;
+  top: 10px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  font-size: 70px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.right {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.food-instruction {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.img {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.left {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  align-items: flex-start;
+  flex-grow: 2;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 30%;
+}
+
+input.user-name,
+textarea.insights {
+  width: 100%;
+  padding-left: 3%;
+}
+
+::placeholder {
+  padding-left: 3%;
+}
+
+.display-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 50%;
+}
+
+ul.commentsUl {
+  width: 100%;
+}
+
+#comments-list li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+
+#comments-list li::before {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.cmnt-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: auto;
+  align-items: center;
+  gap: 5px;
+}
+
+.cmnt-form input,
+textarea {
+  border: solid 2px black;
+}
+
+.submit-btn {
+  width: 90px;
+  padding: 10px;
+  color: black;
+}
+
+.pop-img {
+  height: 300px;
+  width: 300px;
+}
