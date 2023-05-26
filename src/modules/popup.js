@@ -1,12 +1,13 @@
-import { postComment, getComment, displayComments } from "./comment.js";
+/* eslint-disable import/prefer-default-export */
+import { postComment, getComment, displayComments } from './comment.js';
 
 export const openPopup = (mealData, mealId) => {
-  const id = mealId.replace("B", "");
-  const popup = document.querySelector(".popup");
-  popup.classList.add("show");
+  const id = mealId.replace('B', '');
+  const popup = document.querySelector('.popup');
+  popup.classList.add('show');
   mealData.forEach((element) => {
     if (element.idMeal === id) {
-      popup.innerHTML =`
+      popup.innerHTML = `
   <div class="content">
      <div class = "right">
      <div id="close-btn" class="close-btn">&times;</div>
@@ -35,11 +36,11 @@ export const openPopup = (mealData, mealId) => {
         </div>
       </div>
   </div>`;
-      const form = document.querySelector(".cmnt-form");
-      form.addEventListener("submit", (e) => {
+      const form = document.querySelector('.cmnt-form');
+      form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.querySelector("input").value;
-        const commentMsg = document.querySelector("textarea").value;
+        const name = document.querySelector('input').value;
+        const commentMsg = document.querySelector('textarea').value;
         const cmntData = {
           item_id: mealId.toString(),
           username: name,
@@ -48,9 +49,9 @@ export const openPopup = (mealData, mealId) => {
 
         // form.reset();
         postComment(cmntData).then(async () => {
-          const comments = await getComment(mealId)
+          const comments = await getComment(mealId);
           const prevComments = await getComment(mealId);
-            displayComments(comments,prevComments);
+          displayComments(comments, prevComments);
         });
 
         // setTimeout(() => {
@@ -58,9 +59,9 @@ export const openPopup = (mealData, mealId) => {
         // },1000);
       });
 
-      const closeBtn = document.querySelector(".close-btn");
-      closeBtn.addEventListener("click", () => {
-        popup.classList.remove("show");
+      const closeBtn = document.querySelector('.close-btn');
+      closeBtn.addEventListener('click', () => {
+        popup.classList.remove('show');
       });
     }
   });

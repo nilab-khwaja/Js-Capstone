@@ -3,11 +3,11 @@ import './style.css';
 
 // import the required functions from module
 import {
-  getMealData, populatedishes, addLike, getLikesData, diplayLikes
+  getMealData, populatedishes, addLike, getLikesData, diplayLikes,
 } from './modules/functions.js';
 
 // import popup function
-import { openPopup} from './modules/popup.js';
+import { openPopup } from './modules/popup.js';
 
 // Getting data from the theMealDB API
 const mealData = await getMealData();

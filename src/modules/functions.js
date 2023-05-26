@@ -68,5 +68,3 @@ export const diplayLikes = async (likesData, itemId) => {
     }
   });
 };
-
-

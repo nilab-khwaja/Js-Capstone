@@ -224,7 +224,8 @@ button:hover,
   font-weight: 900;
   cursor: pointer;
 }
-.right{
+
+.right {
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -232,32 +233,34 @@ button:hover,
   padding: 20px;
   flex-grow: 1;
 }
-.food-instruction{
+
+.food-instruction {
   display: flex;
   flex-direction: column;
-  gap:6px;
-}
-.img{
-  display: flex;
-  flex-direction: column;
-  gap:4px;
+  gap: 6px;
 }
 
-.left{
+.img {
   display: flex;
-  justify-content:space-evenly;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.left {
+  display: flex;
+  justify-content: space-evenly;
   gap: 20px;
   align-items: flex-start;
   flex-grow: 2;
 }
 
-.form-section{
+.form-section {
   display: flex;
   flex-direction: column;
-  gap:4px;
+  gap: 4px;
 }
 
-.display-comments{
+.display-comments {
   display: flex;
   flex-direction: row;
   gap: 4px;
@@ -269,11 +272,11 @@ button:hover,
   align-items: center;
 }
 
-#comments-list li:before {
+#comments-list li::before {
   content: attr(data-username);
   font-weight: bold;
   margin-right: 5px;
-} 
+}
 
 #comments-list li span {
   margin-left: 5px;
@@ -293,12 +296,12 @@ textarea {
   border: solid 2px black;
 }
 
-.submit-btn{
+.submit-btn {
   width: 90px;
   padding: 10px;
   color: black;
-
 }
+
 .pop-img {
   height: 300px;
   width: 300px;
