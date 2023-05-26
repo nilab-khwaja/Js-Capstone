@@ -20,7 +20,7 @@ export const openPopup = (mealData, mealId) => {
      <hr/>
      <br>
      <div class = "left">
-     <div class="display-comments">
+     <div class="display-comments flex-column">
             <h2 class = "comment-title" ></h2>
             <ul id="comments-list" class = "commentsUl"></ul>   
      </div>

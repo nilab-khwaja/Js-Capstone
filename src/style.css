@@ -115,6 +115,13 @@ button:hover,
   button {
     width: 30%;
   }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
 }
 
 @media only screen and (min-width: 375px) {
@@ -203,6 +210,16 @@ button:hover,
 }
 
 /* popUp window stye */
+div.container {
+  position: fixed;
+  top: 60px;
+  left: 100px;
+  width: 90%;
+  height: 95%;
+  overflow-y: auto;
+  z-index: 10;
+}
+
 .popup {
   display: none;
 }
@@ -272,28 +289,41 @@ button:hover,
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 30%;
+}
+
+input.user-name,
+textarea.insights {
+  width: 100%;
+  padding-left: 3%;
+}
+
+::placeholder {
+  padding-left: 3%;
 }
 
 .display-comments {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 4px;
+  width: 50%;
+}
+
+ul.commentsUl {
+  width: 100%;
 }
 
 #comments-list li {
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: black;
+  text-decoration: none;
 }
 
 #comments-list li::before {
-  content: attr(data-username);
   font-weight: bold;
   margin-right: 5px;
-}
-
-#comments-list li span {
-  margin-left: 5px;
 }
 
 .cmnt-form {
